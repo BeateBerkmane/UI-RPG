@@ -8,7 +8,7 @@ public class PoisonBlade : Blade
 
     public override float GetDamage()
     {
-        float baseDamage = GetDamage();
+        float baseDamage = base.GetDamage();
         if (poisonCount > 0)
         {
             poisonCount--;

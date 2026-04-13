@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1056289315053561883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9220833064253245763}
+  - component: {fileID: 1482282190412751733}
+  m_Layer: 0
+  m_Name: Enemy 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9220833064253245763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056289315053561883}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1482282190412751733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056289315053561883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a28a15173d10740a58cb0d6d2e3446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  health: 15
+  charName: Enemy
+  possibleNames:
+  - Joe
+  - Killer
+  - Sue
+  - Rick
+  - Carlos
+  - Miko
+  - Tito
+  - Ross
+  minHP: 10
+  maxHP: 20
+  possibleSprites:
+  - {fileID: 8133862503505104629, guid: 07f39107386c50a45a0e8624aa2f857c, type: 3}
+  - {fileID: -694078857535070110, guid: 112ec92d9807af84c8619d3d23daa8b1, type: 3}
+  - {fileID: -671442439835575952, guid: 9e4de59246ab9c94693d7fbd796cddd6, type: 3}
+  - {fileID: -479719363213488628, guid: 87bdcdd71ae9f49459d939a0c929c44f, type: 3}
+  - {fileID: 8181930046428265004, guid: ab18b96a161d39c409fb51fbb59d13f3, type: 3}
+  minDamage: 2
+  maxDamage: 4

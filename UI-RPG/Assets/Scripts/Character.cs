@@ -12,13 +12,19 @@ public abstract class Character : MonoBehaviour
         
     }
 
+    public float Health
+    {
+        get { return health; }
+        set { health = Mathf.Max(0, value); }
+    }
+
     public abstract void Attack (Character toHit);
     
     
 
     public void TakeDamage(float damage)
     {
-        health = health - damage;
+        health -= damage;
         Debug.Log(charName + " took " + damage + 
                   " damage! Health:" + health);
     }

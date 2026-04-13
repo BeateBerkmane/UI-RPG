@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player : Character
 {
     [SerializeField] private Weapon activeWeapon;
+    [SerializeField] private Sprite playerSprite;
+    public Sprite PlayerSprite => playerSprite;
     public override void Attack(Character enemytoHit)
     {
         enemytoHit.TakeDamage(activeWeapon);

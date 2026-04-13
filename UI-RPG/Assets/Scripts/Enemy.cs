@@ -2,23 +2,33 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    [SerializeField] private float minDamage, maxDamage;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public override void Attack(Character enemytoHit)
-    
+    [Header("Random Enemy settings")] [SerializeField]
+    private string[] possibleNames;
+
+    [SerializeField] private float minHP = 10f;
+    [SerializeField] private float maxHP = 20f;
+
+    [SerializeField] private Sprite[] possibleSprites;
+
+    [Header("Damage settings")]
+    [SerializeField] private float minDamage = 2f;
+    [SerializeField] private float maxDamage = 6f;
+
+    public string EnemyName { get; private set; }
+    public Sprite EnemySprite { get; private set; }
+
+    void Awake()
+    {
+        EnemyName = possibleNames[Random.Range(0, possibleNames.Length)];
+        health = Random.Range(minHP, maxHP);
+        EnemySprite = possibleSprites[Random.Range(0, possibleSprites.Length)];
+    }
+
+    public override void Attack(Character target)
+
     {
         float damage = Random.Range(minDamage, maxDamage);
-        enemytoHit.TakeDamage(damage);
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        target.TakeDamage(damage);
+        Debug.Log(EnemyName + "attacked" + target.CharName + "for" + damage);
     }
 }
