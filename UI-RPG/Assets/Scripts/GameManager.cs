@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image enemyImage;
     [SerializeField] private UnityEngine.UI.Image playerImage;
     [SerializeField] private TMP_Text playerName, playerHP, enemyName, enemyHP;
+    [SerializeField] private TMP_Text currentWeaponText;
+    [SerializeField] private GameObject gameOverPanel;
+    
+    [SerializeField] private Weapon bladePrefab;
+    [SerializeField] private Weapon poisonBladePrefab;
+    [SerializeField] private Weapon bowPrefab;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,6 +40,7 @@ public class GameManager : MonoBehaviour
         enemyName.text = enemy.EnemyName;
         enemyHP.text = "HP:" + Mathf.Max(0, enemy.health).ToString("F1");
         enemyImage.sprite = enemy.EnemySprite;
+        currentWeaponText.text = "Weapon: " + player.CurrentWeaponName;
 
     }
 
@@ -61,6 +68,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Player died! Game over.");
             attackButton.interactable = false;
+            gameOverPanel.SetActive(true);
             gameOverText.gameObject.SetActive(true);
             quitButton.gameObject.SetActive(true);
         }
@@ -73,11 +81,29 @@ public class GameManager : MonoBehaviour
         enemy = Instantiate(enemyPrefab, new Vector3(2,0,0), Quaternion.identity);
         Debug.Log("New enemy spawned: " + enemy.EnemyName);
     }
+    public void SelectBlade()
+    {
+        player.SetWeapon(bladePrefab);
+        UpdateUI();
+    }
+
+    public void SelectPoisonBlade()
+    {
+        player.SetWeapon(poisonBladePrefab);
+        UpdateUI();
+    }
+
+    public void SelectBow()
+    {
+        player.SetWeapon(bowPrefab);
+        UpdateUI();
+    }
     public void QuitGame()
     {
         Debug.Log("Quit pressed, exiting game.");
         Application.Quit();
     }
+    
     
     // Update is called once per frame
     void Update()

@@ -4,22 +4,21 @@ public class Player : Character
 {
     [SerializeField] private Weapon activeWeapon;
     [SerializeField] private Sprite playerSprite;
+    [SerializeField] private Weapon currentWeapon;
+
     public Sprite PlayerSprite => playerSprite;
-    public override void Attack(Character enemytoHit)
+    public string CurrentWeaponName => currentWeapon.weaponName;
+    public void SetWeapon(Weapon newWeapon)
     {
-        enemytoHit.TakeDamage(activeWeapon);
+        currentWeapon = newWeapon;
+    }
+    public override void Attack(Character target)
+    {
+        float damage = currentWeapon.GetDamage();
+        target.TakeDamage(damage);
+        Debug.Log(CharName + " attacked " + target.CharName + " for " + damage);
+        
         //float damage = activeWeapon.GetDamage();
         //enemytoHit.TakeDamage(damage);
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
